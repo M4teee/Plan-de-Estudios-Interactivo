@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+:root {
+    --color-fondo: #121212; --color-texto: #e0e0e0; --color-borde: #333; --color-header: #1f1f1f;
+    --color-bloqueada-fondo: #2c2c2c; --color-bloqueada-texto: #666;
+    --color-cursada-fondo: #3a3a2c; --color-cursada-texto: #d6b87d;
+    --color-final-fondo: #2a3a2e; --color-final-texto: #8cc89c;
+    --color-nota-display: #bbf7d0; --color-azul: #3b82f6; --color-rojo: #ef4444;
+}
+body { font-family: 'Inter', sans-serif; background-color: var(--color-fondo); color: var(--color-texto); margin: 0; padding: 2rem; }
+h1 { text-align: center; font-weight: 700; margin-bottom: 2rem; }
+.plan-container { max-width: 1200px; margin: 0 auto; border: 1px solid var(--color-borde); border-radius: 12px; overflow: hidden; }
+.año-header, .año-row { display: grid; grid-template-columns: 120px 1fr 1fr; align-items: stretch; }
+.año-header { background-color: var(--color-header); font-weight: 500; text-align: center; border-bottom: 1px solid var(--color-borde); }
+.año-header > div { padding: 0.75rem; }
+.año-label { text-align: center; font-weight: 700; border-right: 1px solid var(--color-borde); display: flex; align-items: center; justify-content: center; }
+
+.semestre-container { padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; min-height: 150px; }
+.semestre-container:first-of-type { border-right: 1px solid var(--color-borde); }
+
+.año-row:not(:last-child) { border-bottom: 1px solid var(--color-borde); }
+
+.materia { border-radius: 6px; transition: all 0.2s ease-in-out; display: flex; flex-direction: column; justify-content: space-between; }
+.materia-info { padding: 0.75rem; cursor: pointer; }
+.materia .codigo { font-size: 0.8em; font-weight: 500; opacity: 0.6; }
+.materia .nombre { font-size: 0.95em; font-weight: 500; }
+.materia-footer { display: none; padding: 0.5rem 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.1); background-color: rgba(0,0,0,0.2); align-items: center; justify-content: space-between;}
+
+.nota-form { display: flex; gap: 0.5rem; align-items: center; }
+.nota-form input { width: 50px; background-color: var(--color-fondo); color: var(--color-texto); border: 1px solid var(--color-borde); border-radius: 4px; padding: 0.25rem 0.5rem; }
+.nota-form button { background-color: var(--color-azul); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.75rem; font-size: 0.8em; cursor: pointer; }
+.nota-final-container { display: none; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.nota-final-display { font-size: 0.9em; font-weight: 700; color: var(--color-nota-display); }
+.notas-anteriores-display { font-size: 0.8em; color: var(--color-bloqueada-texto); }
+.notas-anteriores-display span { font-weight: bold; }
+
+.habilitada { border: 1px solid var(--color-borde); }
+.bloqueada { background-color: var(--color-bloqueada-fondo); color: var(--color-bloqueada-texto); border: 1px solid var(--color-bloqueada-fondo); cursor: not-allowed; }
+
+.cursada { background-color: var(--color-cursada-fondo); border: 1px solid #5a5a3c; color: var(--color-cursada-texto); }
+.cursada .materia-footer { display: flex; }
+.cursada .nota-form { display: flex; }
+.cursada .nota-final-container { display: flex; }
+
+.final-aprobado { background-color: var(--color-final-fondo); border: 1px solid #3b6044; color: var(--color-final-texto); opacity: 0.9; }
+.final-aprobado .materia-info { text-decoration: line-through; }
+.final-aprobado .materia-footer { display: flex; }
+.final-aprobado .nota-form { display: none; }
+.final-aprobado .nota-final-container { display: flex; } 
+
+.promedios-wrapper { display: flex; gap: 2rem; justify-content: center; margin: 2rem auto 0; }
+.promedio-container { flex: 1; max-width: 400px; background-color: var(--color-header); border: 1px solid var(--color-borde); border-radius: 12px; padding: 1.5rem; text-align: center; }
+.promedio-container h2 { margin: 0 0 0.5rem 0; font-weight: 500; opacity: 0.8; font-size: 1.1em; }
+.promedio-valor { font-size: 2.5em; font-weight: 700; }
+#promedio-aprobadas .promedio-valor { color: var(--color-final-texto); }
+#promedio-historico .promedio-valor { color: var(--color-cursada-texto); }
+
+.reset-container { text-align: center; margin-top: 2.5rem; }
+#reset-btn { background-color: transparent; border: 1px solid var(--color-rojo); color: var(--color-rojo); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; opacity: 0.6; }
